@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 
 const MovieCard = ({ id, image, rating, genre, title, type, plot }) => {
   return (
-    <div
+    <Link href={`/FetchingMovies/${id}`}
       className="h-[12rem] md:h-[16rem] aspect-[6/8]   bg-gray-800 rounded-md relative"
       key={id}
     >
@@ -14,6 +15,7 @@ const MovieCard = ({ id, image, rating, genre, title, type, plot }) => {
         alt="gf"
         width="800"
         height="800"
+        
       />
 
       <div className="absolute top-0 right-0 w-full px-1 py-2 flex flex-col justify-between h-full rounded-md hover:glassEffect group">
@@ -36,7 +38,7 @@ const MovieCard = ({ id, image, rating, genre, title, type, plot }) => {
           <p className="text-xs  hidden group-hover:line-clamp-2">{plot}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

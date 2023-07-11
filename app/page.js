@@ -11,8 +11,8 @@ export default function Home() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         <TopicContainer
-          title="Fetching Products"
-          destination="/FetchingProducts"
+          title="Fetching Movies"
+          destination="/FetchingMovies"
         />
       </div>
     </div>
