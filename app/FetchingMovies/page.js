@@ -6,14 +6,14 @@ import Movies from "./Movies";
 
 const FetchingProducts = async () => {
   const queryClient = getQueryClient();
-  await queryClient.prefetchQuery(["movies"], getMovies);
+  await queryClient.prefetchQuery({ queryKey: ["movies"], queryFn: getMovies });
   const dehydratedState = dehydrate(queryClient);
 
   return (
     <Hydrate state={dehydratedState}>
-      <div className='w-full flex flex-col items-center gap-y-3'>
+      <div className="w-full flex flex-col items-center gap-y-3">
         <h1 className="text-2xl font-bold">Movies</h1>
-        <Movies/>
+        <Movies />
       </div>
     </Hydrate>
   );

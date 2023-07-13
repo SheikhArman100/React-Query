@@ -6,14 +6,17 @@ import Details from "./Details";
 
 const MovieDetails = async ({ params }) => {
   const queryClient = getQueryClient();
-  await queryClient.prefetchQuery(["movies", params.movieId], getMovie(params.movieId));
+  await queryClient.prefetchQuery({
+    queryKey: ["movies", params.movieId],
+    queryFn: () => getMovie(params.movieId),
+  });
   const dehydratedState = dehydrate(queryClient);
 
   return (
     <Hydrate state={dehydratedState}>
       <div className=" flex flex-col items-center md:px-8">
         <h1 className="text-2xl font-bold">Movie Details</h1>
-        <Details id={params.movieId}/>
+        <Details id={params.movieId} />
       </div>
     </Hydrate>
   );
